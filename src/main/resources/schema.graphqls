@@ -1,0 +1,24 @@
+
+type Query {
+    getCustomer() : Customer
+}
+
+
+type Mutation {
+  addOrder (order: Order!) : Order
+}
+
+
+type Customer {
+  id: Int
+  name: String
+  birthdate: String
+
+  orders: [Order]
+}
+
+
+type Order {
+  id: Int
+  date: String
+}
