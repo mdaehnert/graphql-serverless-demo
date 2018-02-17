@@ -1,12 +1,12 @@
 {"query": "
-    query getCustomer {
-      customer {
+    query testQuery {
+      getCustomer {
         id
         name
 
-        orders {
-          date
-        }
+#        orders {
+  #          date
+#       }
       }
     }
 "}
