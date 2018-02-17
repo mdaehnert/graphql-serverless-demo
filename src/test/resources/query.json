@@ -2,8 +2,8 @@
     query getCustomer {
       customer {
         id
-        name 
-        
+        name
+
         orders {
           date
         }
