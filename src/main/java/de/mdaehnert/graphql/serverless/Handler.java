@@ -13,7 +13,7 @@ public class Handler {
 
   private DynamoDB init() {
     AmazonDynamoDBClientBuilder builder = AmazonDynamoDBClientBuilder.standard();
-    builder.setRegion(Regions.EU_CENTRAL_1.getName());
+    builder.withRegion(Regions.EU_CENTRAL_1);
 
     return new DynamoDB(builder.build());
   }
@@ -24,11 +24,11 @@ public class Handler {
 
 
     QuerySpec spec = new QuerySpec()
-      .withKeyConditionExpression("Id = :id")
+      .withKeyConditionExpression("id = :id")
       .withValueMap(new ValueMap()
-        .withString(":id", "1"));
+        .withInt(":id", 0));
 
-    Item res = db.getTable("Customer").query(spec).iterator().next();
+    Item res = db.getTable("customer").query(spec).iterator().next();
 
     return res.toString();
   }

@@ -6,7 +6,9 @@ public class HandlerTest {
 
   @Test
   public void testGetCustomer() {
-    new Handler().handleRequest("", null);
+    String res = new Handler().handleRequest("", null);
+
+    System.out.println(res);
   }
 
 }
