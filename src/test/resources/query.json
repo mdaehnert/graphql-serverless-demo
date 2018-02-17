@@ -4,9 +4,9 @@
         id
         name
 
-#        orders {
-  #          date
-#       }
+        orders {
+            date
+       }
       }
     }
 "}

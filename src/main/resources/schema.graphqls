@@ -14,11 +14,11 @@ type Customer {
   age: Int
   birthdate: String
 
-#  orders: [Order]
+  orders: [Order]
 }
 
 
-#type Order {
-#  id: Int
-#  date: String
-#}
+type Order {
+  id: Int
+  date: String
+}

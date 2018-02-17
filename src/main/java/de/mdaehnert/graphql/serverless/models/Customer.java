@@ -4,6 +4,8 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
+import java.util.List;
+
 @DynamoDBTable(tableName = "customer")
 public class Customer {
 
@@ -11,6 +13,8 @@ public class Customer {
   private String name;
   private Integer age;
   private String birthdate;
+  private List<Order> orders;
+
 
   @DynamoDBHashKey(attributeName = "id")
   public Integer getId() { return id; }
@@ -27,5 +31,9 @@ public class Customer {
   @DynamoDBAttribute(attributeName="birthdate")
   public String getBirthdate() { return birthdate; }
   public void setBirthdate(String birthdate) { this.birthdate = birthdate; }
+
+  @DynamoDBAttribute(attributeName="orders")
+  public List<Order> getOrders() { return orders; }
+  public void setOrders(List<Order> orders) { this.orders = orders; }
 
 }
