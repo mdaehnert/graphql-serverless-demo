@@ -30,11 +30,11 @@
       <version>1.11.280</version>
     </dependency>
 
-    <!-- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html -->
     <dependency>
-      <groupId>com.amazonaws</groupId>
-      <artifactId>DynamoDBLocal</artifactId>
-      <version>[1.11,2.0)</version>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
