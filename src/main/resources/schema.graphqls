@@ -12,6 +12,7 @@ type Mutation {
 type Customer {
   id: Int
   name: String
+  age: Int
   birthdate: String
 
   orders: [Order]
