@@ -1,6 +1,7 @@
-{"query": "
-    query testQuery {
-      getCustomer {
+{
+  "query": "
+    query testQuery($id: Int!) {
+      getCustomer(id: $id) {
         id
         name
 
@@ -9,4 +10,8 @@
        }
       }
     }
-"}
+  ",
+  "variables": {
+    "id": 0
+  }
+}

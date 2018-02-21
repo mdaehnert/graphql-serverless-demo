@@ -4,8 +4,10 @@ package de.mdaehnert.graphql.serverless;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.coxautodev.graphql.tools.SchemaParser;
 import com.coxautodev.graphql.tools.SchemaParserBuilder;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import de.mdaehnert.graphql.serverless.resolvers.MutationResolver;
 import de.mdaehnert.graphql.serverless.resolvers.QueryResolver;
 import graphql.ExecutionInput;
 import graphql.ExecutionResult;
@@ -36,7 +38,7 @@ public class Handler {
 
   private void init() {
     SchemaParserBuilder parser = SchemaParser.newParser().file("schema.graphqls");
-    parser.resolvers(new QueryResolver());
+    parser.resolvers(new QueryResolver(), new MutationResolver());
 
     schema = parser.build().makeExecutableSchema();
   }
@@ -50,6 +52,8 @@ public class Handler {
 
 
   private Map<String, Object> extractVariables(String input) {
-    return new HashMap<>();
+    JsonObject request = new JsonParser().parse(input).getAsJsonObject();
+
+    return new Gson().fromJson(request.get("variables"), Map.class);
   }
 }

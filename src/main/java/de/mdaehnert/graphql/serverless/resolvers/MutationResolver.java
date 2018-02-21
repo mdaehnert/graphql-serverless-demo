@@ -3,15 +3,15 @@ package de.mdaehnert.graphql.serverless.resolvers;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import de.mdaehnert.graphql.serverless.models.Customer;
+import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+import de.mdaehnert.graphql.serverless.models.Order;
 
-public class QueryResolver implements GraphQLQueryResolver {
+public class MutationResolver implements GraphQLMutationResolver {
 
 
-  public Customer getCustomer(int id) {
-    return getDB().load(Customer.class, id);
+  public Order addOrder(Order order) {
+
+    return null;
   }
 
 

@@ -1,16 +1,12 @@
 type Query {
-    getCustomer : Customer
+    getCustomer(id: Int!) : Customer
 }
 
 
-#type Mutation {
-#  addOrder (order: Order!) : Order
-#}
-
 
 type Customer {
-  id: Int
-  name: String
+  id: Int!
+  name: String!
   age: Int
   birthdate: String
 
