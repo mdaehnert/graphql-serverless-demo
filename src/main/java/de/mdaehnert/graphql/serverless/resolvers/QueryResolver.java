@@ -14,7 +14,6 @@ public class QueryResolver implements GraphQLQueryResolver {
     return getDB().load(Customer.class, id);
   }
 
-
   private DynamoDBMapper getDB() {
     AmazonDynamoDBClientBuilder builder = AmazonDynamoDBClientBuilder.standard();
     builder.withRegion(Regions.EU_CENTRAL_1);

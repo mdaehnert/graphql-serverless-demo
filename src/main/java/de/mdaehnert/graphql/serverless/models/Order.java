@@ -6,12 +6,12 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 @DynamoDBDocument
 public class Order {
 
-  private Integer id;
+  private int amount;
   private String date;
 
-  @DynamoDBHashKey(attributeName = "id")
-  public Integer getId() { return id; }
-  public void setId(Integer id) { this.id = id; }
+  @DynamoDBHashKey(attributeName = "amount")
+  public int getAmount() { return amount; }
+  public void setAmount(int amount) { this.amount = amount; }
 
   @DynamoDBHashKey(attributeName = "date")
   public String getDate() { return date; }

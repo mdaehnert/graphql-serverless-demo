@@ -11,14 +11,29 @@ public class HandlerTest {
 
   @Test
   public void testGetCustomer() throws Exception {
-    String res = new Handler().handleRequest(getRequestJson(), null);
+    String res = new Handler().handleRequest(getCustomerJson(), null);
+
+    System.out.println(res);
+  }
+
+  @Test
+  public void testAddOrder() throws Exception {
+    String res = new Handler().handleRequest(getOrderJson(), null);
 
     System.out.println(res);
   }
 
 
-  private String getRequestJson() throws Exception {
+  private String getCustomerJson() throws Exception {
     URL url = this.getClass().getClassLoader().getResource("query.json");
+    Path path = Paths.get(url.toURI());
+    byte[] fileBytes = Files.readAllBytes(path);
+
+    return new String(fileBytes);
+  }
+
+  private String getOrderJson() throws Exception {
+    URL url = this.getClass().getClassLoader().getResource("mutation.json");
     Path path = Paths.get(url.toURI());
     byte[] fileBytes = Files.readAllBytes(path);
 

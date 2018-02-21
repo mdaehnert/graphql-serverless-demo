@@ -1,0 +1,16 @@
+{
+  "query": "
+    mutation testMutation($orderInput: OrderInput!) {
+      addOrder(newOrder: $orderInput) {
+        amount
+        date
+      }
+    }
+  ",
+  "variables": {
+    "orderInput": {
+      "customerId": 0,
+      "amount": 123
+    }
+  }
+}
