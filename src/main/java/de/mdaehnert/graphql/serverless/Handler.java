@@ -23,7 +23,6 @@ public class Handler {
 
 
   public String handleRequest(InputType input, Context context) {
-    System.out.println(input.getQuery());
     init();
 
     ExecutionInput exec = ExecutionInput.newExecutionInput()
@@ -33,7 +32,7 @@ public class Handler {
 
     ExecutionResult result = GraphQL.newGraphQL(schema).build().execute(exec);
 
-    return result.toString();
+    return result.toSpecification().toString();
   }
 
 
