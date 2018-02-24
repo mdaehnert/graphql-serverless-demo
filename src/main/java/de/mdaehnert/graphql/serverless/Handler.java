@@ -22,12 +22,13 @@ public class Handler {
   private GraphQLSchema schema;
 
 
-  public String handleRequest(String input, Context context) {
+  public String handleRequest(InputType input, Context context) {
+    System.out.println(input.getQuery());
     init();
 
     ExecutionInput exec = ExecutionInput.newExecutionInput()
-      .query(extractQueries(input))
-      .variables(extractVariables(input))
+      .query(input.getQuery())
+      .variables(input.getVariables())
       .build();
 
     ExecutionResult result = GraphQL.newGraphQL(schema).build().execute(exec);
@@ -43,17 +44,28 @@ public class Handler {
     schema = parser.build().makeExecutableSchema();
   }
 
+}
 
-  private String extractQueries(String input) {
-    JsonObject request = new JsonParser().parse(input).getAsJsonObject();
+class InputType {
+  private String query;
+  private Map<String, Object> variables = new HashMap<>();
 
-    return request.get("query").getAsString();
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public String getQuery() {
+    return query;
   }
 
 
-  private Map<String, Object> extractVariables(String input) {
-    JsonObject request = new JsonParser().parse(input).getAsJsonObject();
 
-    return new Gson().fromJson(request.get("variables"), Map.class);
+  public void setVariables(Map<String, Object> variables) {
+    this.variables = variables;
   }
+
+  public Map<String, Object> getVariables() {
+    return variables;
+  }
+
 }

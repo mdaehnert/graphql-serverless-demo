@@ -1,0 +1,6 @@
+mutation testMutation($orderInput: OrderInput!) {
+  addOrder(newOrder: $orderInput) {
+    amount
+    date
+  }
+}

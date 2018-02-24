@@ -1,0 +1,10 @@
+query testQuery($id: Int!) {
+  getCustomer(id: $id) {
+    id
+    name
+
+    orders {
+        date
+   }
+  }
+}
